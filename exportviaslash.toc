@@ -1,0 +1,10 @@
+## Interface: 30300
+## Title: my slash export addon
+## Notes: Some notes about this addon.
+## Author: WoW Player
+## SavedVariables: SpellsMap
+## Version: 0.1
+
+embeds.xml
+exportviaslash.lua
+GYPSpellData.lua
