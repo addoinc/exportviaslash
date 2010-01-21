@@ -1,8 +1,35 @@
 require('string')
 
-dofile("table.show.lua")
+-- dofile('table.show.lua')
+-- dofile("table.save-0.94.lua")
 dofile("exportviaslash.lua")
 dofile("GnomishYellowPages.lua")
+
+------------------function to print table--------------------
+function table_print (tt, indent, done)
+  done = done or {}
+  indent = indent or 0
+  if type(tt) == "table" then
+    for key, value in pairs (tt) do
+      io.write(string.rep (" ", indent)) -- indent it
+      if type (value) == "table" and not done [value] then
+        done [value] = true
+        io.write(string.format('["%s"] = ', tostring (key)));
+        io.write(string.rep (" ", indent+4)) -- indent it
+        io.write("{\n");
+        table_print (value, indent + 7, done)
+        io.write(string.rep (" ", indent+4)) -- indent it
+        io.write("},\n");
+      else
+        io.write(string.format('[%s] = "%s",\n',
+            tostring (key), tostring(value)))
+      end
+    end
+  else
+    io.write(tt .. "\n")
+  end
+end
+-------------------------------------------------------------
  
 --------------- WoW base64 Decode function ------------------
 local encodedByte = {
@@ -39,7 +66,7 @@ local Profession = "Blacksmithing"
 local recipe_characters = {}
 local start_time = time()
 
-print("(Re)Buiding recipe_characters map")
+-- print("(Re)Buiding recipe_characters map")
 local i = 0
 for char_name in pairs(YPData[ServerKey][Profession]) do
    -- print("\n given the character: ", char_name)
@@ -61,20 +88,26 @@ for char_name in pairs(YPData[ServerKey][Profession]) do
    --- BREAK AFTER A FEW ITERATIONS SO I CAN SEE THIS THING WORK --- 
    i = i + 1
    if( i > 10 ) then
-       -- break
+      -- break
    end
 end
 
 local end_time = time()
-print("Done (Re)Buiding recipe_characters map")
-print("Total time to build map: ", end_time - start_time, " seconds")
+--print("Done (Re)Buiding recipe_characters map")
+--print("Total time to build map: ", end_time - start_time, " seconds")
 
 start_time = time()
-print("Printing first 10 characters who know Radiant Breastplate\n")
+--print("Printing first 10 characters who know Radiant Breastplate\n")
 local page_num, page_size = 0, 10
 for idx in pairs({1,2,3,4,5,6,7,8,9,10}) do
-   print(recipe_characters["Sageblade"][idx + (page_num*page_size)])
+   --print(recipe_characters["Sageblade"][idx + (page_num*page_size)])
 end
-print("\nDone Printing first 10 characters who know Radiant Breastplate")
+--print("\nDone Printing first 10 characters who know Radiant Breastplate")
 end_time = time()
-print("Total time to print first 10 characters who know Radiant Breastplate: ", end_time - start_time, " seconds")
+--print("Total time to print first 10 characters who know Radiant Breastplate: ", end_time - start_time, " seconds")
+
+print("RecipeCharacters = {\n")
+table_print(recipe_characters, 4)
+print("}\n")
+-- print(table.show(recipe_characters, 'RecipeCharacters'))
+-- print(table.save(recipe_characters))
