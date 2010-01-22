@@ -8,3 +8,4 @@
 embeds.xml
 exportviaslash.lua
 GYPSpellData.lua
+RecipeCharacters.lua
