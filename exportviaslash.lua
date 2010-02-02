@@ -71,13 +71,17 @@ function SlashCmdList.EXPORTVIASLASH(msg)
    elseif ( msg == "Jewelcrafting" ) then
       my_link = "TEST " .. "|cffffd000|Htrade:51311:450:450:380000002A47F07:" .. "/" .. string.rep("/", 95) .. "|h[Jewelcrafting]|h|r" .. " TEST"
    elseif ( msg == "Alchemy" ) then
-      my_link = "TEST " .. "|cffffd000|Htrade:28677:450:450:380000002E39D99:" .. "/" .. string.rep("/", 44) .. "|h[Elixir Master]|h|r" .. " TEST"
+      my_link = "TEST " .. "|cffffd000|Htrade:28677:450:450:380000002E39D99:" .. "/" .. string.rep("/", 44) .. "|h[Alchemy]|h|r" .. " TEST"
    elseif ( msg == "Leatherworking" ) then
       my_link = "TEST " .. "|cffffd000|Htrade:51302:420:450:380000001B74BA8:" .. "/" .. string.rep("/", 90) .. "|h[Leatherworking]|h|r" ..  " TEST"
    elseif ( msg == "Engineering" ) then
       my_link = "TEST " .. "|cffffd000|Htrade:51306:450:450:3800000007E3495:" .. "/" .. string.rep("/", 54) .. "|h[Engineering]|h|r" .. " TEST"
    elseif ( msg == "Enchanting" ) then
       my_link = "TEST " .. "|cffffd000|Htrade:51313:450:450:380000002FDA45E:" .. "/" .. string.rep("/", 51) .. "|h[Enchanting]|h|r" .. " TEST"
+   elseif ( msg == "Cooking" ) then
+      my_link = "TEST " .. "|cffffd000|Htrade:2550:450:450:380000002FDA45E:" .. "/" .. string.rep("/", 30) .. "|h[Cooking]|h|r" .. " TEST"
+   elseif ( msg == "First Aid" ) then
+      my_link = "TEST " .. "|cffffd000|Htrade:3273:450:450:380000002FDA45E:" .. "/" .. string.rep("/", 5) .. "|h[First Aid]|h|r" .. " TEST"
    end
    
    local tradeID, skill_level, bitmap = string.match(my_link, "trade:(%d+):(%d+):%d+:[0-9a-fA-F]+:([A-Za-z0-9+/]+)")
