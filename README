@@ -1,0 +1,9 @@
+Usage: 
+ /exportviaslash all
+or 
+ /exportviaslash profession
+where profession is one of:
+ "Blacksmithing", "Tailoring", "Inscription", "Jewelcrafting", "Alchemy",
+ "Leatherworking", "Engineering", "Enchanting", "Cooking", "First Aid"
+
+After running this slash command in the game, the exportviaslash.lua Saved variables file in WTF\Account will have the table SpellsMap.
