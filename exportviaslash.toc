@@ -7,5 +7,5 @@
 
 embeds.xml
 exportviaslash.lua
-GYPSpellData.lua
+SpellDataLookupTable.lua
 RecipeCharacters.lua
